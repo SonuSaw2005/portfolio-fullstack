@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Professional Portfolio - Sonu Saw</title>
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Load required libraries from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+            
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="logo-container">
+                    <!-- Placeholder logo image. Replace with a real one. -->
+                    <img src="https://placehold.co/60x60/1d3557/f1faee?text=SS" class="logo" alt="Sonu Saw Logo" onerror="this.src='https://placehold.co/60x60/1d3557/f1faee?text=SS';" />
+                    <div class="logo-text"><h1>Sonu Saw</h1></div>
+                </div>
+                <div class="nav-item">
+                    <div><a href="#projects">Projects</a></div>
+                    <div><a href="#skills">Skills</a></div>
+                    <div><a href="#contactme">Contact me</a></div>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <main class="hero-section">
+                <div class="faded-text">sonu saw</div>
+                
+                <div class="hero-section-left">
+                    <div class="hero-section-heading">Hi there, I am</div>
+                    <div class="hero-section-heading hero-section-sub-heading">
+                        I am a <span class="role"></span>
+                    </div>
+                    <div class="hero-section-description">
+                        I am a passionate web developer with a keen interest in creating dynamic and responsive web applications that provide seamless user experiences. I specialize in building robust and scalable full-stack solutions.
+                    </div>
+                    <div class="btn-pink" id="button" title="Download Resume">Download CV</div>
+                </div>
+
+                <div class="hero-section-right">
+                    <!-- THREE.JS PARTICLE BACKGROUND CANVAS -->
+                    <canvas id="threeJsCanvas"></canvas>
+                    
+                    <div class="user-image">
+                        <!-- Placeholder user image. Replace with a real one. -->
+                        <img src="https://placehold.co/350x450/e63946/f1faee?text=Sonu+Saw" alt="user" onerror="this.src='https://placehold.co/350x450/e63946/f1faee?text=Sonu+Saw';" />
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Project Section -->
+        <div class="project-section" id="projects">
+            <div class="container">
+                <h2 class="page-header">Projects</h2>
+                <div class="project-container">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card" id="project1">
+                        <div class="project-number project-number-right">01</div>
+                        <div class="project-content project-content-left">
+                            <div class="project-skills-container">
+                                <img class="project-skill" src="Images/stack/HTML.png" alt="HTML">
+                                <img class="project-skill" src="Images/stack/CSS.png" alt="CSS">
+                                <img class="project-skill" src="Images/stack/Javascript.svg" alt="JavaScript">
+                                <img class="project-skill" src="Images/stack/Express.png" alt="Express">
+                                <img class="project-skill" src="Images/stack/NextJsCircle.png" alt="NextJS">
+                                <img class="project-skill" src="Images/stack/Tailwind.png" alt="Tailwind">
+                                <img class="project-skill" src="Images/stack/NodeJs.svg" alt="NodeJS">
+                                <img class="project-skill" src="Images/stack/MongoDB.svg" alt="MongoDB">
+                            </div>
+                            <h2 class="project-heading">Tint & Orange</h2>
+                            <div class="project-subheading">
+                                It's a car modification website where you can visualize different colors and styling options for vehicles.
+                            </div>
+                            <div class="bth-grp">
+                                <button class="btn-pink btn-project">View Details</button>
+                                <a href="https://github.com/yourusername/project1-repo">
+                                    <i title="GitHub Repository" class="fa-brands fa-github icon"></i>
+                                </a>
+                                <a href="#">
+                                    <i title="Live Demo" class="fa-solid fa-link icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card" id="project2">
+                        <div class="project-number project-number-left">02</div>
+                        <div class="project-content project-content-right">
+                            <div class="project-skills-container">
+                                <img class="project-skill" src="Images/stack/HTML.png" alt="HTML">
+                                <img class="project-skill" src="Images/stack/CSS.png" alt="CSS">
+                                <img class="project-skill" src="Images/stack/Javascript.svg" alt="JavaScript">
+                                <img class="project-skill" src="Images/stack/NodeJs.svg" alt="NodeJS">
+                                <img class="project-skill" src="Images/stack/Redux.svg" alt="Redux">
+                                <img class="project-skill" src="Images/stack/Tailwind.png" alt="Tailwind">
+                                <img class="project-skill" src="Images/stack/Vercel.svg" alt="Vercel">
+                            </div>
+                            <h2 class="project-heading">Breaking Copyrights</h2>
+                            <div class="project-subheading">
+                                A platform dedicated to downloading copyright-free music suitable for creative content creators.
+                            </div>
+                            <div class="bth-grp">
+                                <button class="btn-pink btn-project">View Details</button>
+                                <a href="https://github.com/yourusername/project2-repo">
+                                    <i title="GitHub Repository" class="fa-brands fa-github icon"></i>
+                                </a>
+                                <a href="#">
+                                    <i title="Live Demo" class="fa-solid fa-link icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card" id="project3">
+                        <div class="project-number project-number-right">03</div>
+                        <div class="project-content project-content-left">
+                            <div class="project-skills-container">
+                                <img class="project-skill" src="Images/stack/HTML.png" alt="HTML">
+                                <img class="project-skill" src="Images/stack/CSS.png" alt="CSS">
+                                <img class="project-skill" src="Images/stack/Javascript.svg" alt="JavaScript">
+                                <img class="project-skill" src="Images/stack/NextJsCircle.png" alt="NextJS">
+                                <img class="project-skill" src="Images/stack/Tailwind.png" alt="Tailwind">
+                                <img class="project-skill" src="Images/stack/Vercel.svg" alt="Vercel">
+                            </div>
+                            <h2 class="project-heading">Project Name 3</h2>
+                            <div class="project-subheading">
+                                Placeholder description for a project related to modern web development technologies.
+                            </div>
+                            <div class="bth-grp">
+                                <button class="btn-pink btn-project">View Details</button>
+                                <a href="https://github.com/yourusername/project3-repo">
+                                    <i title="GitHub Repository" class="fa-brands fa-github icon"></i>
+                                </a>
+                                <a href="#">
+                                    <i title="Live Demo" class="fa-solid fa-link icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card" id="project4">
+                        <div class="project-number project-number-left">04</div>
+                        <div class="project-content project-content-right">
+                            <div class="project-skills-container">
+                                <img class="project-skill" src="Images/stack/NextJsCircle.png" alt="NextJS">
+                                <img class="project-skill" src="Images/stack/Tailwind.png" alt="Tailwind">
+                                <img class="project-skill" src="Images/stack/Vercel.svg" alt="Vercel">
+                            </div>
+                            <h2 class="project-heading">Granit</h2>
+                            <div class="project-subheading">
+                                An architecture website focused on planning dream houses with diverse styles and professional designs.
+                            </div>
+                            <div class="bth-grp">
+                                <button class="btn-pink btn-project">View Details</button>
+                                <a href="https://github.com/yourusername/project4-repo">
+                                    <i title="GitHub Repository" class="fa-brands fa-github icon"></i>
+                                </a>
+                                <a href="#">
+                                    <i title="Live Demo" class="fa-solid fa-link icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="container skills-container">
+            <div class="skill-fade-text">Skills</div>
+
+            <div class="skill-container-left">
+                <h2 class="skill-heading">
+                    <span class="caps">M</span>e and
+                    <br />
+                    My Tech Stack
+                </h2>
+                <div class="skill-subHeading">
+                    <p class="skill-subHeading-p">I have a strong foundation in **HTML, CSS, and JavaScript**, specializing in building Full Stack applications using the **MERN stack** (MongoDB, Express, React, Node.js).</p>
+                    <p class="skill-subHeading-p">I am passionate about creating **user-friendly interfaces** with modern frameworks like **React** and **Next.js**, ensuring high performance and responsive design across all devices. My focus is on delivering a seamless and engaging user experience.</p>
+                    <p class="skill-subHeading-p">I am a strong believer in continuous learning and always look to incorporate best practices in development, including version control with Git/GitHub and streamlined deployment using Vercel, to deliver high-quality, maintainable code.</p>
+                </div>
+            </div>
+
+
+            <div class="skill-container-right">
+                <div class="skills-box">
+                    <img src="./images/stack/HTML.png" alt="HTML" class="skills-logo" />
+                    <img src="./images/stack/CSS.png" alt="CSS" class="skills-logo" />
+                    <img src="./images/stack/Javascript.svg" alt="JavaScript" class="skills-logo" />
+                    <img src="./images/stack/React.png" alt="React" class="skills-logo" />
+                    <img src="./images/stack/NodeJs.svg" alt="NodeJs" class="skills-logo" />
+                    <img src="./images/stack/Next.svg" alt="NextJS" class="skills-logo" />
+                    <img src="./images/stack/Tailwind.png" alt="Tailwind CSS" class="skills-logo" />
+                    <img src="./images/stack/Bootstrap.svg" alt="Bootstrap" class="skills-logo" />
+                    <img src="./images/stack/MaterialUI.svg" alt="Material UI" class="skills-logo" />
+                    <img src="./images/stack/Express.png" alt="ExpressJS" class="skills-logo" />
+                    <img src="./images/stack/Git.svg" alt="Git" class="skills-logo" />
+                    <img src="./images/stack/Github.svg" alt="Github" class="skills-logo" />
+                    <img src="./images/stack/Graphql.svg" alt="GraphQL" class="skills-logo" />
+                    <img src="./images/stack/MongoDB.svg" alt="MongoDB" class="skills-logo" />
+                    <img src="./images/stack/Vercel.svg" alt="Vercel" class="skills-logo" />
+                    <img src="./images/stack/ChartJs.svg" alt="ChartJS" class="skills-logo" />
+                    <img src="./images/stack/Bash.svg" alt="Bash" class="skills-logo" />
+                    <img src="./images/stack/Docker.svg" alt="Docker" class="skills-logo" />
+                    <img src="./images/stack/K8s.svg" alt="Kubernetes" class="skills-logo" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="contactus-form-container" id="contactme">
+            <div class="container">
+                <h1 class="contactus-heading">Contact Me</h1>
+                <h3 class="contactus-sub-heading">Questions, Thoughts, or Just want to say hello?</h3>
+
+                <div class="contactus-form-container">
+                    <!-- UPDATED: Removed mailto action and added an ID -->
+                    <form class="form" id="contactForm">
+                        <div class="formfield-container">
+                            <!-- UPDATED: Added ID to inputs for JavaScript access -->
+                            <input class="formfield" 
+                            type="text"
+                            placeholder=" Enter Your Name"
+                            name="name" 
+                            id="form-name"
+                            required />
+                            
+                            <input class="formfield"
+                            type="email"
+                            name="email"
+                            id="form-email"
+                            placeholder=" Enter Your Email"
+                            required />
+                            
+                            <input class="formfield"
+                            type="text"
+                            name="subject"
+                            id="form-subject"
+                            placeholder=" Enter Your Subject"
+                            required />
+                            
+                            <textarea class="formfield formfield-textarea"
+                            name="message"
+                            id="form-message"
+                            cols="30"
+                            rows="10" 
+                            placeholder=" Enter Your Message"
+                            required></textarea>
+                        </div>
+                        <div>
+                            <button class="btn-pink" type="submit" id="submit-btn">
+                                Send Message <i class="submit-icon fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <!-- NEW: Added a paragraph to show success/error messages -->
+                    <p id="form-status" style="text-align: center; margin-top: 1rem; font-weight: 600;"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-wrapper">
+                    <div class="link-wrapper">
+                        <div>
+                            <a href="#projects">Projects</a>
+                        </div>
+                        <div>
+                            <a href="#skills">Skills</a>
+                        </div>
+                        <div>
+                            <a href="#contactme">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="icon-wrap">
+                        <a href="#"><i class="fa-brands fa-linkedin icon" title="LinkedIn"></i></a>
+                        <a href="#"><i class="fa-brands fa-github icon" title="GitHub"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter icon" title="Twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram icon" title="Instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook icon" title="Facebook"></i></a>
+                        <a href="#"><i class="fa-solid fa-envelope icon" title="Email"></i></a> 
+                        <a href="#"><i class="fa-brands fa-whatsapp icon" title="WhatsApp"></i></a>
+                    </div>
+                    <div class="footer-faded-text">© Sonu Saw. All rights reserved.</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Link to custom JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
