@@ -6,16 +6,24 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-// --- UPDATED: Import ALL route files ---
+// Import all route files
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
-const messageRoutes = require('./routes/messages'); // <-- ADD THIS LINE
+const messageRoutes = require('./routes/messages');
 
 // 3. Initialize the Express application
 const app = express();
 
+// --- FINAL CORS CONFIGURATION FOR DEPLOYMENT ---
+// This tells our backend to trust requests specifically from our live Vercel frontend.
+// IMPORTANT: You may need to update this URL if you get a new one from Vercel.
+const corsOptions = {
+  origin: 'https://portfolio-fullstack-k8125btx3-sonu-saws-projects.vercel.app'
+};
+app.use(cors(corsOptions));
+
+
 // 4. Add middleware
-app.use(cors());
 app.use(express.json());
 
 // 5. Define the port
@@ -34,8 +42,7 @@ mongoose.connect(dbURI)
 // 7. Define API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/messages', messageRoutes); // <-- AND ADD THIS LINE
-
+app.use('/api/messages', messageRoutes);
 
 // --- Example base route ---
 app.get('/', (req, res) => {

@@ -1,4 +1,5 @@
 // --- FINAL: Central API URL Configuration for Deployment ---
+// This now points to your live backend server on Render.
 const API_BASE_URL = 'https://portfolio-fullstack-1-5bvh.onrender.com';
 
 
@@ -12,11 +13,7 @@ window.onload = function () {
     // --- Typed.js Setup ---
     new Typed(".role", {
         strings: [
-            "Full Stack Developer",
-            "Web Developer",
-            "UI/UX Designer",
-            "Backend Developer",
-            "Coder"
+            "Full Stack Developer", "Web Developer", "UI/UX Designer", "Backend Developer", "Coder"
         ],
         loop: true,
         typeSpeed: 100,
@@ -163,3 +160,4 @@ window.onload = function () {
         animate(); // Start the animation only if the canvas exists
     }
 };
+
