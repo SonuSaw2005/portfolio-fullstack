@@ -1,3 +1,7 @@
+// --- FINAL: Central API URL Configuration for Deployment ---
+const API_BASE_URL = 'https://portfolio-fullstack-1-5bvh.onrender.com';
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const loginSection = document.getElementById('login-section');
@@ -21,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
         try {
-            const response = await fetch('http://localhost:3000/api/auth/login', {
+            // UPDATED: Now uses the live API URL
+            const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -43,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const token = sessionStorage.getItem('authToken');
         if (!token) return;
         try {
-            const response = await fetch('http://localhost:3000/api/messages', {
+            // UPDATED: Now uses the live API URL
+            const response = await fetch(`${API_BASE_URL}/api/messages`, {
                 headers: { 'x-auth-token': token },
             });
             const messages = await response.json();
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messages.forEach(message => {
                 const messageCard = document.createElement('div');
                 messageCard.className = 'message-card';
-                // --- UPDATED: Added the delete button with a data-id attribute ---
+                // This is your original delete button style
                 messageCard.innerHTML = `
                     <button class="delete-btn" data-id="${message._id}">Delete</button>
                     <h3>${message.subject}</h3>
@@ -79,20 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // --- 4. NEW: EVENT LISTENER FOR DELETE BUTTONS ---
+    // --- 4. EVENT LISTENER FOR DELETE BUTTONS ---
     messagesContainer.addEventListener('click', async (event) => {
-        // We use event delegation to listen for clicks on any delete button
         if (event.target.classList.contains('delete-btn')) {
             const messageId = event.target.dataset.id;
             const token = sessionStorage.getItem('authToken');
 
-            // Use a simple confirm pop-up to prevent accidental deletes
             if (!confirm('Are you sure you want to delete this message forever?')) {
                 return;
             }
 
             try {
-                const response = await fetch(`http://localhost:3000/api/messages/${messageId}`, {
+                // UPDATED: Now uses the live API URL
+                const response = await fetch(`${API_BASE_URL}/api/messages/${messageId}`, {
                     method: 'DELETE',
                     headers: { 'x-auth-token': token }
                 });
@@ -100,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
                 if (!response.ok) throw new Error(data.msg || 'Failed to delete message');
 
-                // If successful, simply remove the message card from the page for instant feedback
                 event.target.closest('.message-card').remove();
                 
             } catch (error) {
