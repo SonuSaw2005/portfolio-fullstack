@@ -103,44 +103,63 @@ window.onload = function () {
         }
     }
 
-    // --- Contact Form Submission Handler ---
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(event) {
-            event.preventDefault();
+ // --- Contact Form Submission Handler ---
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMessage').value;
-            const statusEl = document.getElementById('contact-form-message');
+        // 1. Get the elements
+        const nameEl = document.getElementById('contactName');
+        const emailEl = document.getElementById('contactEmail');
+        const subjectEl = document.getElementById('contactSubject');
+        const messageEl = document.getElementById('contactMessage');
+        const statusEl = document.getElementById('contact-form-message');
 
-            try {
-                // UPDATED: Now uses the live API URL
-                const response = await fetch(`${API_BASE_URL}/api/messages`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, subject, message }),
-                });
-
-                if (!response.ok) {
-                    throw new Error(`Server error! Status: ${response.status}`);
-                }
-                
-                const result = await response.json();
-                statusEl.textContent = "Message sent successfully!";
-                statusEl.style.color = 'lightgreen';
-                console.log('Message sent:', result);
-                contactForm.reset();
-
-            } catch (error) {
-                statusEl.textContent = 'Error sending message. Please try again.';
+        // 2. CHECK: Ensure all required elements were found in the DOM
+        if (!nameEl || !emailEl || !subjectEl || !messageEl || !statusEl) {
+            console.error("Critical Error: One or more contact form elements are missing from the HTML.");
+            // OPTIONAL: Add a visual message if statusEl exists
+            if (statusEl) {
+                statusEl.textContent = 'Setup error: Could not find all necessary form fields.';
                 statusEl.style.color = 'red';
-                console.error('Error sending message:', error);
             }
-        });
-    }
+            return; // Stop execution if elements are missing
+        }
 
+        // 3. Extract the values (now safe to access .value)
+        const name = nameEl.value;
+        const email = emailEl.value;
+        const subject = subjectEl.value;
+        const message = messageEl.value;
+
+        // ... rest of your existing fetch and error handling logic ...
+
+        try {
+            // UPDATED: Now uses the live API URL
+            const response = await fetch(`${API_BASE_URL}/api/messages`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, subject, message }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server error! Status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            statusEl.textContent = "Message sent successfully!";
+            statusEl.style.color = 'lightgreen';
+            console.log('Message sent:', result);
+            contactForm.reset();
+
+        } catch (error) {
+            statusEl.textContent = 'Error sending message. Please try again.';
+            statusEl.style.color = 'red';
+            console.error('Error sending message:', error);
+        }
+    });
+}
 
     // =================================================================
     // SECTION 3: EVENT LISTENERS & INITIAL CALLS
@@ -161,3 +180,11 @@ window.onload = function () {
     }
 };
 
+document.getElementById("button").addEventListener("click", function () {
+    const link = document.createElement("a");
+    link.href = "./webdev.pdf";
+    link.download = "Sonu_Saw_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
